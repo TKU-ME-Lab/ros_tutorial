@@ -13,7 +13,7 @@ int main(int argc, char **argv)
   ros::Subscriber number_subscriber = nh.subscribe("/number", 10 , number_callback);
   ros::Rate loop_rate(10);
 
-  ros::spinOnce();
+  ros::spin();
   loop_rate.sleep();
   return 0;
 }

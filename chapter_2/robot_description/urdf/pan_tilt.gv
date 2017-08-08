@@ -1,0 +1,11 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"pan_link" [label="pan_link"];
+"tilt_link" [label="tilt_link"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "pan_joint" [label="xyz: 0 0 0.1 \nrpy: 0 -0 0"]
+"pan_joint" -> "pan_link"
+"pan_link" -> "tilt_joint" [label="xyz: 0 0 0.2 \nrpy: 0 -0 0"]
+"tilt_joint" -> "tilt_link"
+}
