@@ -1,0 +1,217 @@
+<?xml version="1.0" ?>
+<robot name="diff_wheeled_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <material name = "Black">
+    <color rgba = "0.0 0.0 0.0 1.0"/>
+  </material>
+
+  <material name = "Red">
+    <color rgba = "0.8 0.0 0.0 1.0"/>
+  </material>
+
+  <material name = "White">
+    <color rgba = "1.0 1.0 1.0 1.0"/>
+  </material>
+
+  <material name = "DarkGrey">
+    <color rgba = "0.25 0.23 0.25 0.97"/>
+  </material>
+
+  <!-- Base Footprint -->
+  <link name="base_footprint">
+    <inertial>
+      <mass value = "0.0001"/>
+      <origin xyz = "0 0 0"/>
+      <inertia ixx = "0.0001" ixy = "0.0" ixz = "0.0" iyy = "0.0001" iyz = "0.0" izz = "0.0001"/>
+    </inertial>
+    <visual>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+      <geometry>
+        <box size = "0.001 0.001 0.001 "/>
+      </geometry>
+    </visual>
+  </link>
+
+  <gazebo reference = "base_footprint">
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+  <!-- Base Footprint Joint -->
+  <joint name = "base_footprint_joint" type = "fixed">
+    <parent link = "base_footprint"/>
+    <child link = "base_link"/>
+    <origin xyz = "0 0 0.04" rpy = "0 0 0"/>
+  </joint>
+
+  <link name="base_link">
+    <visual>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+      <geometry>
+        <cylinder length = "0.02" radius = "0.15"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+      <geometry>
+        <cylinder length = "0.02" radius = "0.15"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference = "base_link">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+  <!-- Front Right Wheel Joint -->
+  <joint name = "front_right_wheel_joint" type = "continuous">
+    <parent link = "base_link"/>
+    <child link = "front_right_wheel"/>
+    <origin xyz = "0.0 0.15 0.0" rpy = "0 0 0"/>
+    <axis xyz = "0 1 0" rpy = "0 0 0"/>
+    <limit effort = "100" velocity = "100"/>
+    <joint_proerties damping = "0.0" friction = "0.0"/>
+  </joint>
+
+  <!-- Front Right Wheel -->
+  <link name = "front_right_wheel">
+    <visual>
+      <origin xyz = "0 0 0" rpy = "1.57079632679 0 0"/>
+      <geometry>
+        <cylinder length = "0.02" radius = "0.04"/>
+      </geometry>
+      <material name = "DarkGrey"/>
+    </visual>
+    <collision>
+      <origin xyz = "0 0 0" rpy = "1.57079632679 0 0"/>
+      <geometry>
+        <cylinder length = "0.02" radius = "0.04"/>
+      </geometry>
+      <material name = "DarkGrey"/>
+    </collision>
+    <inertial>
+      <mass value = "2.5"/>
+      <origin xyz = "0 0 0"/>
+      <inertia ixx = "0.00108333333333" ixy = "0" ixz = "0" iyy = "0.00108333333333" iyz = "0" izz = "0.002"/>
+    </inertial>
+  </link>
+  <gazebo reference = "front_right_wheel">
+    <mu1 value = "1.0"/>
+    <mu2 value = "1.0"/>
+    <kp value = "10000000.0"/>
+    <kd value = "1.0"/>
+    <fdir1 value = "1 0 0"/>
+    <material>Gazebo/Grey</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+  <!-- Front Left Wheel Joint -->
+  <joint name = "front_left_wheel_joint" type = "continuous">
+    <parent link = "base_link"/>
+    <child link = "front_left_wheel"/>
+    <origin xyz = "0.0 -0.15 0.0" rpy = "0 0 0"/>
+    <axis xyz = "0 1 0" rpy = "0 0 0"/>
+    <limit effort = "100" velocity = "100"/>
+    <joint_proerties damping = "0.0" friction = "0.0"/>
+  </joint>
+
+  <!-- Front Left Wheel -->
+  <link name = "front_left_wheel">
+    <visual>
+      <origin xyz = "0 0 0" rpy = "1.57079632679 0 0"/>
+      <geometry>
+        <cylinder length = "0.02" radius = "0.04"/>
+      </geometry>
+      <material name = "DarkGrey"/>
+    </visual>
+    <collision>
+      <origin xyz = "0 0 0" rpy = "1.57079632679 0 0"/>
+      <geometry>
+        <cylinder length = "0.02" radius = "0.04"/>
+      </geometry>
+      <material name = "DarkGrey"/>
+    </collision>
+    <inertial>
+      <mass value = "2.5"/>
+      <origin xyz = "0 0 0"/>
+      <inertia ixx = "0.00108333333333" ixy="0" ixz="0" iyy="0.00108333333333" iyz="0" izz="0.002"/>
+    </inertial>
+  </link>
+  <gazebo reference = "front_left_wheel">
+    <mu1 value = "1.0"/>
+    <mu2 value = "1.0"/>
+    <kp value = "10000000.0"/>
+    <kd value = "1.0"/>
+    <fdir1 value = "1 0 0"/>
+    <material>Gazebo/Grey</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+  <!-- Caster Front Joint -->
+  <joint name = "caster_front_joint" type = "fixed">
+    <parent link = "base_link"/>
+    <child link = "caster_front_link"/>
+    <origin xyz = "0.115 0.0 0.007" rpy = "-1.57079632679 0 0"/>
+  </joint>
+
+  <!-- Caster Front Link -->
+  <link name = "caster_front_link">
+    <visual>
+      <origin xyz = "0 0.02 0" rpy = "1.57079632679 0 0"/>
+      <geometry>
+        <sphere radius = "0.025"/>
+      </geometry>
+      <material name = "Black"/>
+    </visual>
+    <collision>
+      <origin xyz = "0 0.02 0" rpy = "1.57079632679 0 0"/>
+      <geometry>
+        <sphere radius = "0.025"/>
+      </geometry>
+      <material name = "Black"/>
+    </collision>
+    <inertial>
+      <mass value = "0.5"/>
+      <origin xyz = "0 0 0"/>
+      <inertia ixx = "0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+  </link>
+  <gazebo reference = "caster_front_link">
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+  <!-- Caster Back Joint -->
+  <joint name = "caster_back_joint" type = "fixed">
+    <parent link = "base_link"/>
+    <child link = "caster_back_link"/>
+    <origin xyz = "-0.135 0.0 0.009" rpy = "-1.57079632679 0 0"/>
+  </joint>
+
+  <!-- Caster Back Link -->
+  <link name = "caster_back_link">
+    <visual>
+      <origin xyz = "0.02 0.02 0" rpy = "1.57079632679 0 0"/>
+      <geometry>
+        <sphere radius = "0.025"/>
+      </geometry>
+      <material name = "Black"/>
+    </visual>
+    <collision>
+      <origin xyz = "0.02 0.02 0" rpy = "1.57079632679 0 0"/>
+      <geometry>
+        <sphere radius = "0.025"/>
+      </geometry>
+      <material name = "Black"/>
+    </collision>
+    <inertial>
+      <mass value = "0.5"/>
+      <origin xyz = "0 0 0"/>
+      <inertia ixx = "0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+  </link>
+  <gazebo reference = "caster_back_link">
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+</robot>

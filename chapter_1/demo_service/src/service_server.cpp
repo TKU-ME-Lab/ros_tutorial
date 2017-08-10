@@ -21,7 +21,7 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "service_server");
   ros::NodeHandle nh;
 
-  ros::ServiceServer service = nh.advertiseService("demo_service", demo_service_callback);
+  ros::ServiceServer server = nh.advertiseService("demo_service", demo_service_callback);
 
   ROS_INFO("Ready to receive from client.");
   ros::spin();

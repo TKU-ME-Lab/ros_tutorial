@@ -1,13 +1,11 @@
 <?xml version="1.0" ?>
-<robot name="pan_tilt">
+<robot name="pan_tilt" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+  <link name ="world"/>
 
-  <link name="world"/>
-
-  <joint name="world_fixed" type="fixed">
-    <parent link="world"/>
+  <joint name = "world" type = "fixed">
+    <parent link = "world"/>
     <child link = "base_link"/>
-    <origin xyz = "0 0 0" rpy = "0 0 0"/>
   </joint>
 
   <link name="base_link">
@@ -23,7 +21,7 @@
 
     <collision>
       <geometry>
-        <cylinder length = "0.03" radius = "0.2"/>
+        <cylinder length = "0.01" radius = "0.2"/>
       </geometry>
       <origin xyz = "0 0 0" rpy = "0 0 0"/>
     </collision>
@@ -55,7 +53,7 @@
 
     <collision>
       <geometry>
-        <cylinder length = "0.4" radius = "0.06"/>
+        <cylinder length = "0.4" radius = "0.04"/>
       </geometry>
       <origin xyz = "0 0 0.09" rpy = "0 0 0"/>
     </collision>
@@ -79,7 +77,7 @@
       <geometry>
         <cylinder length = "0.4" radius = "0.04"/>
       </geometry>
-      <origin xyz = "0 1.5 0" rpy = "0 0 0"/>
+      <origin xyz = "0 0.08 0" rpy = "0 0 0"/>
       <material name = "green">
         <color rgba = "1 0 0 1"/>
       </material>
@@ -87,9 +85,9 @@
 
     <collision>
       <geometry>
-        <cylinder length = "0.4" radius = "0.06"/>
+        <cylinder length = "0.4" radius = "0.04"/>
       </geometry>
-      <origin xyz = "0 1.5 0" rpy = "0 0 0"/>
+      <origin xyz = "0 0.08 0" rpy = "0 0 0"/>
     </collision>
     <inertial>
       <mass value = "1"/>
