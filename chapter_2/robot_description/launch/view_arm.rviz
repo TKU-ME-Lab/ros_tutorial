@@ -62,32 +62,57 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        base_footprint:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        caster_back_link:
+        bottom_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        caster_front_link:
+        elbow_pitch_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        front_left_wheel:
+        elbow_roll_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        front_right_wheel:
+        gripper_finger_link1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_finger_link2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_roll_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        shoulder_pan_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        shoulder_pitch_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist_pitch_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist_roll_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -103,17 +128,27 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        base_footprint:
-          Value: true
         base_link:
           Value: true
-        caster_back_link:
+        bottom_link:
           Value: true
-        caster_front_link:
+        elbow_pitch_link:
           Value: true
-        front_left_wheel:
+        elbow_roll_link:
           Value: true
-        front_right_wheel:
+        gripper_finger_link1:
+          Value: true
+        gripper_finger_link2:
+          Value: true
+        gripper_roll_link:
+          Value: true
+        shoulder_pan_link:
+          Value: true
+        shoulder_pitch_link:
+          Value: true
+        wrist_pitch_link:
+          Value: true
+        wrist_roll_link:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -121,22 +156,25 @@ Visualization Manager:
       Show Axes: false
       Show Names: false
       Tree:
-        base_footprint:
+        bottom_link:
           base_link:
-            caster_back_link:
-              {}
-            caster_front_link:
-              {}
-            front_left_wheel:
-              {}
-            front_right_wheel:
-              {}
+            shoulder_pan_link:
+              shoulder_pitch_link:
+                elbow_roll_link:
+                  elbow_pitch_link:
+                    wrist_roll_link:
+                      wrist_pitch_link:
+                        gripper_roll_link:
+                          gripper_finger_link1:
+                            {}
+                          gripper_finger_link2:
+                            {}
       Update Interval: 0
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: base_footprint
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -157,7 +195,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 0.998876274
+      Distance: 2.20819712
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
@@ -171,10 +209,10 @@ Visualization Manager:
       Focal Shape Size: 0.0500000007
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.0403982401
+      Pitch: 0.390398175
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 6.19358349
+      Yaw: 6.20358372
     Saved: ~
 Window Geometry:
   Displays:
