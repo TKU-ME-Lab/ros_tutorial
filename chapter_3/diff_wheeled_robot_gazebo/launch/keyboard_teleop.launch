@@ -1,0 +1,7 @@
+<launch>
+  <node name = "diff_wheeled_robot_key" pkg = "teleop_twist_keyboard" type = "teleop_twist_keyboard.py"
+                                                                                        output = "screen">
+    <param name = "scale_linear" value = "0.5" type = "double"/>
+    <param name = "scale_augular" value = "1.5" type = "double"/>
+  </node>
+</launch>

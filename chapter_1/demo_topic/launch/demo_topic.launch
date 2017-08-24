@@ -1,0 +1,4 @@
+<launch>
+  <node name = "topic_publisher" pkg = "demo_topic" type = "topic_publisher" output = "screen"/>
+  <node name = "topic_subscriber" pkg = "demo_topic" type = "topic_subscriber" output = "screen"/>
+</launch>

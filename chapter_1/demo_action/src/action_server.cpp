@@ -22,12 +22,17 @@ protected:
   int progress;
 
 public:
+  //constructor
   demo_actionAction(std::string name):
+  //initialization list
     action_server(nh , name , boost::bind(&demo_actionAction::executeCB , this , _1) , false),
-    action_name(name){
+    action_name(name)
+  //
+  {
       action_server.registerPreemptCallback(boost::bind(&demo_actionAction::preemptCB, this));
       action_server.start();
   }
+  //destructor
   ~demo_actionAction(void){
   }
 
@@ -67,7 +72,7 @@ public:
         action_server.publishFeedback(action_feedback);
       }
       rate.sleep();
-   }
+    }
   }
 };
 
@@ -75,8 +80,7 @@ int main(int argc, char **argv)
 {
   ros::init(argc, argv, "action_server");
   ROS_INFO("Start Action Server");
-  demo_actionAction demo_actionAction("demo_action");
-
+  demo_actionAction demo_action("demo_action");
   ros::spin();
   return 0;
 }

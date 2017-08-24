@@ -1,0 +1,713 @@
+<?xml version="1.0" ?>
+<robot name="seven_dof_arm" xmlns:xacro="http://ros.org/wiki/xacro">
+
+
+  <material name = "Black">
+    <color rgba = "0.0 0.0 0.0 1.0"/>
+  </material>
+
+
+  <material name = "Red">
+    <color rgba = "0.8 0.0 0.0 1.0"/>
+  </material>
+
+  <material name = "White">
+    <color rgba = "1.0 1.0 1.0 1.0"/>
+  </material>
+
+  <material name = "DarkGrey">
+    <color rgba = "0.35 0.35 0.35 0"/>
+  </material>
+
+  <!-- Bottom Link  -->
+  <link name = "bottom_link">
+    <visual>
+      <origin xyz = "0 0 -0.04" rpy = "0 0 0"/>
+      <geometry>
+       <box size = "1 1 0.02"/>
+      </geometry>
+      <material name = "White"/>
+    </visual>
+
+    <collision>
+      <origin xyz = "0 0 -0.04" rpy = "0 0 0"/>
+      <geometry>
+        <box size = "1 1 0.02"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="bottom_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <!-- Bottom Joint -->
+  <joint name = "bottom_joint" type = "fixed">
+    <parent link = "bottom_link"/>
+    <child link = "base_link"/>
+    <origin xyz = "0 0 0" rpy = "0 0 0"/>
+  </joint>
+
+  <!-- Base Link  -->
+  <link name = "base_link">
+    <visual>
+      <origin xyz = "0 0 0" rpy = "1.570795 0 0"/>
+      <geometry>
+        <box size = "0.1 0.1 0.1"/>
+      </geometry>
+      <material name = "White"/>
+    </visual>
+
+    <collision>
+      <origin xyz = "0 0 00" rpy = "1.570795 0 0"/>
+      <geometry>
+        <box size = "0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <gazebo reference="base_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <!-- Shoulder Pan Joint -->
+  <joint name = "shoulder_pan_joint" type = "revolute">
+    <parent link = "base_link"/>
+    <child link = "shoulder_pan_link"/>
+    <origin xyz = "0 0 0.05" rpy = "0 1.570795 0"/>
+    <axis xyz = "-1 0 0"/>
+    <limit effort = "300" lower = "-2.61799387799" upper="1.98394848567" velocity="1"/>
+    <dynamics damping = "50" friction = "1"/>
+  </joint>
+
+  <!-- Transmission Shoudler Pan Joint -->
+  <transmission name = "tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name = "shoulder_pan_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name = "motor1">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Shoulder Pan Link  -->
+  <link name = "shoulder_pan_link">
+    <visual>
+      <origin xyz = "0 0 0" rpy = "0 1.570795 0"/>
+      <geometry>
+        <cylinder length = "0.08" radius = "0.04"/>
+      </geometry>
+      <material name = "Red"/>
+    </visual>
+
+    <collision>
+      <origin xyz = "0 0 0" rpy = "0 1.570795 0"/>
+      <geometry>
+        <cylinder length = "0.08" radius = "0.04"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <gazebo reference="shoulder_pan_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <!-- Shoulder Pitch Joint -->
+  <joint name = "shoulder_pitch_joint" type = "revolute">
+    <parent link = "shoulder_pan_link"/>
+    <child link = "shoulder_pitch_link"/>
+    <origin xyz = "-0.041 0.0021 0.0" rpy = "-1.570795 0 1.570795"/>
+    <axis xyz = "1 0 0"/>
+    <limit effort = "300" lower = "-1.19962513147" upper="1.89994105047" velocity="1"/>
+    <dynamics damping = "50" friction = "1"/>
+  </joint>
+
+  <!-- Tramsmission Shoudler Pitch Joint -->
+  <transmission name = "tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name = "shoulder_pitch_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name = "motor1">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Shoulder Pitch Link  -->
+  <link name = "shoulder_pitch_link">
+    <visual>
+      <origin xyz = "-0.002 0 0.04" rpy = "0 1.570795 0"/>
+      <geometry>
+        <box size = "0.14 0.04 0.04"/>
+      </geometry>
+      <material name = "White"/>
+    </visual>
+
+    <collision>
+      <origin xyz = "-0.002 0 0.04" rpy = "0 1.570795 0"/>
+      <geometry>
+        <box size = "0.14 0.04 0.04"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+       <mass value="1"/>
+       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="1.0"/>
+     </inertial>
+  </link>
+
+  <gazebo reference="shoulder_pitch_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <!-- Elobow Roll Joint -->
+  <joint name = "elbow_roll_joint" type = "revolute">
+    <parent link = "shoulder_pitch_link"/>
+    <child link = "elbow_roll_link"/>
+    <origin xyz = "-0.002 0.0 0.1206" rpy = "3.14159 1.570795 0"/>
+    <axis xyz = "-1 0 0"/>
+    <limit effort = "300" lower = "-2.61799387799" upper="0.705631162427" velocity="1"/>
+    <dynamics damping = "50" friction = "1"/>
+  </joint>
+
+  <!-- Tramsmission Elbow Roll Joint -->
+  <transmission name = "tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name = "elbow_roll_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name = "motor1">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Elobow Roll Link  -->
+  <link name = "elbow_roll_link">
+    <visual>
+      <origin xyz = "-0.015 0 0" rpy = "0 1.570795 0"/>
+      <geometry>
+        <cylinder length = "0.06" radius = "0.02"/>
+      </geometry>
+      <material name = "Black"/>
+    </visual>
+
+    <collision>
+      <origin xyz = "-0.015 0 00" rpy = "0 1.570795 0"/>
+      <geometry>
+        <cylinder length = "0.06" radius = "0.02"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+       <mass value="1"/>
+       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="1.0"/>
+     </inertial>
+  </link>
+
+  <gazebo reference="elbow_roll_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!-- Elobow Pitch Joint -->
+  <joint name = "elbow_pitch_joint" type = "revolute">
+    <parent link = "elbow_roll_link"/>
+    <child link = "elbow_pitch_link"/>
+    <origin xyz = "-0.035 0.0 0.0" rpy = "0.055 1.570795 0"/>
+    <axis xyz = "1 0 0"/>
+    <limit effort = "300" lower = "-1.5953400194" upper= "1.93281579274" velocity="1"/>
+    <dynamics damping = "50" friction = "1"/>
+  </joint>
+
+  <!-- Tramsmission Elbow Pitch Joint -->
+  <transmission name = "tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name = "elbow_pitch_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name = "motor1">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Elobow Pitch Link  -->
+  <link name = "elbow_pitch_link">
+    <visual>
+      <origin xyz = "0 0 -0.12" rpy = "0 1.570795 0"/>
+      <geometry>
+        <box size = "0.22 0.04 0.04"/>
+      </geometry>
+      <material name = "Red"/>
+    </visual>
+
+    <collision>
+      <origin xyz = "0 0 -0.12" rpy = "0 1.570795 0"/>
+      <geometry>
+        <box size = "0.22 0.04 0.04"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+       <mass value="1"/>
+       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="1.0"/>
+     </inertial>
+  </link>
+
+  <gazebo reference="elbow_pitch_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <!-- Wrist Roll Joint -->
+  <joint name = "wrist_roll_joint" type = "revolute">
+    <parent link = "elbow_pitch_link"/>
+    <child link = "wrist_roll_link"/>
+    <origin xyz = "0.0 0.0 -0.248" rpy = "0 1.570795 3.14159"/>
+    <axis xyz = "1 0 0"/>
+    <limit effort = "300" lower = "-2.61799387799" upper= "2.6128806087" velocity="1"/>
+    <dynamics damping = "50" friction = "1"/>
+  </joint>
+
+  <!-- Tramsmission Wrist Roll Joint -->
+  <transmission name = "tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name = "wrist_roll_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name = "motor1">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Wrist Roll Link  -->
+  <link name = "wrist_roll_link">
+    <visual>
+      <origin xyz = "0 0 0" rpy = "0 1.570795 0"/>
+      <geometry>
+        <cylinder length = "0.06" radius = "0.02"/>
+      </geometry>
+      <material name = "Black"/>
+    </visual>
+
+    <collision>
+      <origin xyz = "0 0 0" rpy = "0 1.570795 0"/>
+      <geometry>
+        <cylinder length = "0.06" radius = "0.02"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+       <mass value="1"/>
+       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="1.0"/>
+     </inertial>
+  </link>
+
+  <gazebo reference="wrist_roll_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!-- Wrist pitch Joint -->
+  <joint name="wrist_pitch_joint" type="revolute">
+     <parent link="wrist_roll_link"/>
+     <child link="wrist_pitch_link"/>
+     <origin xyz = "0.0 0.0 0.0001" rpy = "0 1.570795 0"/>
+     <axis xyz="1 0 0"/>
+     <limit effort="300" lower="-1.5953400194" upper="1.98394848567" velocity="1"/>
+     <dynamics damping="50" friction="1"/>
+   </joint>
+
+  <!-- Tramsmission Elbow Pitch Joint -->
+  <transmission name = "tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name = "wrist_pitch_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name = "motor1">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Wrist Pitch Link -->
+  <link name="wrist_pitch_link">
+    <visual>
+      <origin xyz="0 0 0.04" rpy="0 1.570795 0"/>
+      <geometry>
+        <box size="0.06 0.04 0.04"/>
+      </geometry>
+      <material name="White"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.04 " rpy="0 1.570795 0"/>
+      <geometry>
+        <box size="0.06 0.04 0.04"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <gazebo reference="wrist_pitch_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <!-- Gripper Roll Joint -->
+  <joint name = "gripper_roll_joint" type = "revolute">
+    <parent link = "wrist_pitch_link"/>
+    <child link = "gripper_roll_link"/>
+    <origin xyz = "0 0 0.08" rpy = "4.712385 -1.570795 0"/>
+    <axis xyz = "1 0 0"/>
+    <limit effort = "300" lower = "-2.61799387799" upper = "2.61799387799" velocity = "1"/>
+    <dynamics damping = "50" friction = "1"/>
+  </joint>
+
+  <!-- Tramsmission Gripper Roll Joint -->
+  <transmission name = "tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name = "gripper_roll_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name = "motor1">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Gripper Roll Link -->
+  <link name="gripper_roll_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.570795 0"/>
+      <geometry>
+        <cylinder length = "0.02" radius = "0.04"/>
+      </geometry>
+      <material name="Red"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0 " rpy="0 1.570795 0"/>
+      <geometry>
+        <cylinder length = "0.02" radius = "0.04"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <gazebo reference="gripper_roll_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <!-- Finger Joint 1 -->
+  <joint name = "finger_joint1" type = "prismatic">
+    <parent link = "gripper_roll_link"/>
+    <child link = "gripper_finger_link1"/>
+    <origin xyz = "0 0 0"/>
+    <axis xyz = "0 1 0"/>
+    <limit effort = "1" lower = "0" upper = "0.03" velocity = "1.0"/>
+    <!--<safety_controller k_position = "20" k_velocity = "20" soft_lower_limit = "-0.15" soft_upper_limit = "0.0"/>-->
+    <dynamics damping = "50" friction = "1"/>
+  </joint>
+
+  <!-- Tramsmission Finger Joint 1 -->
+  <transmission name = "tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name = "finger_joint1">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name = "motor1">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Gripper Finger Link 1 -->
+  <link name="gripper_finger_link1">
+    <visual>
+      <origin xyz="0.04 -0.03 0"/>
+      <geometry>
+        <box size="0.08 0.01 0.01"/>
+      </geometry>
+      <material name="White"/>
+    </visual>
+    <collision>
+      <origin xyz="0.04 -0.03 0 "/>
+      <geometry>
+        <box size="0.08 0.01 0.01"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <gazebo reference="gripper_finger_link1">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <!-- Finger Joint 2 -->
+  <joint name = "finger_joint2" type = "prismatic">
+    <parent link = "gripper_roll_link"/>
+    <child link = "gripper_finger_link2"/>
+    <origin xyz = "0 0 0"/>
+    <axis xyz = "0 1 0"/>
+    <limit effort = "1" lower = "-0.03" upper = "0" velocity = "1.0"/>
+    <!--<safety_controller k_position = "20" k_velocity = "20" soft_lower_limit = "-0.15" soft_upper_limit = "0.0"/> -->
+    <dynamics damping = "50" friction = "1"/>
+  </joint>
+
+  <!-- Tramsmission Finger Joint 2 -->
+  <transmission name = "tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name = "finger_joint2">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name = "motor1">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Gripper Finger Link 2 -->
+  <link name="gripper_finger_link2">
+    <visual>
+      <origin xyz="0.04 0.03 0"/>
+      <geometry>
+        <box size="0.08 0.01 0.01"/>
+      </geometry>
+      <material name="White"/>
+    </visual>
+    <collision>
+      <origin xyz="0.04 0.03 0 "/>
+      <geometry>
+        <box size="0.08 0.01 0.01"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <gazebo reference="gripper_finger_link2">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <joint name = "grasping_frame_joint" type = "fixed">
+    <parent link = "gripper_roll_link"/>
+    <child link = "grasping_frame"/>
+    <origin xyz = "0.08 0 0"/>
+  </joint>
+
+  <link name="grasping_frame">
+    <visual>
+      <origin xyz= "0 0 0"/>
+      <geometry>
+        <box size="0.02 0.02 0.02"/>
+      </geometry>
+      <material name="White"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.02 0.02 0.02"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.0001"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="100" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <gazebo reference="grasping_frame">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <!-- Frames in the Center of the Camera -->
+
+  <joint name = "rgbd_camera_joint" type = "fixed">
+    <origin xyz = "0.1 0 1" rpy = "0 1.308996939 0"/>
+    <parent link = "base_link"/>
+    <child link = "rgbd_camera_link"/>
+  </joint>
+
+  <link name = "rgbd_camera_link">
+    <inertial>
+      <origin xyz = "-0.00936000000 -0.00003000000 -0.00273000000" rpy = "0 0 0"/>
+      <mass value = "0.2197"/>
+      <inertia ixx="0.00000429247" ixy="0.00000000000" ixz="0.00000002565" iyy="0.00000008027" iyz="0.00000000000" izz="0.00000427339"/>
+    </inertial>
+
+    <visual>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+      <geometry>
+        <box size = "0.1 0.1 0.1"/>
+      </geometry>
+      <material name = "Red"/>
+    </visual>
+  </link>
+
+  <joint name = "rgbd_camera_optical_joint" type = "fixed">
+    <origin xyz = "0 0 0" rpy = "-1.57079632679 0 -1.57079632679"/>
+    <parent link = "rgbd_camera_link"/>
+    <child link = "rgbd_camera_optical_frame"/>
+  </joint>
+
+  <link name = "rgbd_camera_optical_frame">
+    <inertial>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+      <mass value = "0.001"/>
+      <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+    </inertial>
+  </link>
+
+  <joint name = "rgbd_camera_depth_joint" type = "fixed">
+    <origin xyz = "0.0 0.049 0.0"/>
+    <parent link = "rgbd_camera_link"/>
+    <child link = "rgbd_camera_depth_frame"/>
+  </joint>
+
+  <link name = "rgbd_camera_depth_frame">
+    <inertial>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+      <mass value = "0.001"/>
+      <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+    </inertial>
+  </link>
+
+  <joint name = "rgbd_camera_depth_optical_joint" type = "fixed">
+    <origin xyz = "0 0 0" rpy = "-1.57079632679 0.0 -1.57079632679"/>
+    <parent link = "rgbd_camera_depth_frame"/>
+    <child link = "rgbd_camera_depth_optical_frame"/>
+  </joint>
+
+  <link name = "rgbd_camera_depth_optical_frame">
+    <inertial>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+      <mass value = "0.001"/>
+      <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+    </inertial>
+  </link>
+
+  <joint name = "rgbd_camera_rgb_joint" type = "fixed">
+    <origin xyz = "0 0.022 0" rpy = "0 0 0"/>
+    <parent link = "rgbd_camera_link"/>
+    <child link = "rgbd_camera_rgb_frame"/>
+  </joint>
+
+  <link name = "rgbd_camera_rgb_frame">
+    <inertial>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+      <mass value = "0.001"/>
+      <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+    </inertial>
+  </link>
+
+  <joint name = "rgbd_camera_rgb_optical_joint" type = "fixed">
+    <origin xyz = "0 0 0" rpy = "-1.57079632679 0.0 -1.57079632679"/>
+    <parent link = "rgbd_camera_rgb_frame"/>
+    <child link = "rgbd_camera_rgb_optical_frame"/>
+  </joint>
+
+  <link name = "rgbd_camera_rgb_optical_frame">
+    <inertial>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+      <mass value = "0.001"/>
+      <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+    </inertial>
+  </link>
+
+  <gazebo reference = "rgbd_camera_link">
+
+    <sensor name = "rgbd_camera_frame_sensor" type = "depth">
+      <always_on>true</always_on>
+      <update_rate>6.0</update_rate>
+      <camera>
+        <horizontal_fov>1.01229096616</horizontal_fov>
+        <image>
+          <format>R8G8B8</format>
+          <width>320</width>
+          <height>240</height>
+        </image>
+        <clip>
+          <near>0.05</near>
+          <far>4.0</far>
+        </clip>
+      </camera>
+      <plugin filename = "libgazebo_ros_openni_kinect.so" name = "rgbd_camera_frame_controller">
+        <alwaysON>true</alwaysON>
+        <updateRate>6.0</updateRate>
+        <cameraName>ir_camera</cameraName>
+        <imageTopicName>ir/image_raw</imageTopicName>
+        <cameraInfoTopicName>ir/camera_info</cameraInfoTopicName>
+        <depthImageTopicName>depth/image_raw</depthImageTopicName>
+        <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+
+        <poinCloudTopicName>depth/points</poinCloudTopicName>
+
+        <frameName>rgbd_camera_optical_frame</frameName>
+
+        <pointCloudCutoff>0.05</pointCloudCutoff>
+        <pointCloudCutoffMax>5</pointCloudCutoffMax>
+
+        <rangeMax>4.0</rangeMax>
+      </plugin>
+    </sensor>
+
+    <sensor name = "rgbd_camera_frame_sensor" type = "depth">
+      <always_on>true</always_on>
+      <update_rate>6.0</update_rate>
+      <camera>
+        <horizontal_fov>1.01229096616</horizontal_fov>
+        <image>
+          <format>R8G8B8</format>
+          <width>320</width>
+          <height>240</height>
+        </image>
+        <clip>
+          <near>0.05</near>
+          <far>4.0</far>
+        </clip>
+      </camera>
+      <plugin filename = "libgazebo_ros_openni_kinect.so" name = "rgbd_camera_frame_controller">
+        <alwaysON>true</alwaysON>
+        <updateRate>6.0</updateRate>
+        <cameraName>rgbd_camera</cameraName>
+        <imageTopicName>rgb/image_raw</imageTopicName>
+        <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+        <depthImageTopicName>depth/image_raw</depthImageTopicName>
+        <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+
+        <frameName>rgbd_camera_optical_frame</frameName>
+
+        <pointCloudCutoff>0.05</pointCloudCutoff>
+        <pointCloudCutoffMax>5</pointCloudCutoffMax>
+
+        <rangeMax>4.0</rangeMax>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+
+  <gazebo>
+    <plugin name = "gazebo_ros_control" filename = "libgazebo_ros_control.so" >
+      <robotNamespace>/seven_dof_arm</robotNamespace>
+    </plugin>
+  </gazebo>
+
+</robot>
