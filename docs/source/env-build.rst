@@ -18,7 +18,14 @@
  * `ubuntu-mate <http://cdimage.ubuntu.com/ubuntu-mate/releases/16.04/release/ubuntu-mate-16.04-desktop-amd64.iso>`_
  * `Linux Mint <http://ftp.tku.edu.tw/Linux/LinuxMint/linuxmint-iso/stable/18.2/linuxmint-18.2-cinnamon-64bit.iso>`_
 
+燒錄usb開機碟
+---------------------
+製作安裝隨身碟，及到BIOS選擇隨身碟開機步驟則參考以下這邊文章：
 
+ .. * `Rufus製作Ubuntu USB安裝隨身碟 
+
+
+fgs
 
 
 
