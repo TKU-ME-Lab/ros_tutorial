@@ -65,7 +65,7 @@ master_doc = 'index'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = []
+exclude_patterns = ['_build']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -131,7 +131,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'ROS-Turtorial.tex', 'ROS-Turtorial Documentation',
+    ('index', 'ROS-Turtorial.tex', 'ROS-Turtorial Documentation',
      'YR-Li', 'manual'),
 ]
 

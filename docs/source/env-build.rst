@@ -44,6 +44,9 @@
 .. sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu xenial main" > /etc/apt/sources.list.d/ros-latest.list'
 
 
+更新ubuntu及安裝所需軟體
+---------------------
+
 
 
 
