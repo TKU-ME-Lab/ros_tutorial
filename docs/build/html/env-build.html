@@ -1,0 +1,151 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_TW">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>環境建置 &#8212; ROS-教程 0.0.1 說明文件</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜尋" href="search.html" />
+    <link rel="next" title="ROS主要層級" href="ros-architecture.html" />
+    <link rel="prev" title="ROS-教程" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="總索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="ros-architecture.html" title="ROS主要層級"
+             accesskey="N">下一頁</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="ROS-教程"
+             accesskey="P">上一頁</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ROS-教程 0.0.1 說明文件</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>環境建置<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h1>
+<p>此章節將以以下順序來進行說明：</p>
+<blockquote>
+<div><ul class="simple">
+<li>選擇ubuntu映像檔下載</li>
+<li>燒錄usb開機碟</li>
+<li>安裝ubuntu</li>
+<li>更新ubuntu及安裝所需軟體</li>
+</ul>
+</div></blockquote>
+<div class="section" id="ubuntu">
+<h2>選擇ubuntu映像檔下載<a class="headerlink" href="#ubuntu" title="本標題的永久連結">¶</a></h2>
+<p>在網路上搜尋ubuntu可能會跳出許多衍生版,像是 ubuntu-mate , ubuntu-gnome, 或者 Linux Mint,雖然這些版本的kernel都相同,在系統上的參數會有些許不同,再之後使用ROS時可能會遇到因版本不同，在安裝設定上會需要修改,所以對於初學者建議下載下面提供的版本。</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://ftp.tku.edu.tw/Linux/Ubuntu/ubuntu-releases/16.04/ubuntu-16.04.5-desktop-amd64.iso">ubuntu</a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="usb">
+<h2>燒錄usb開機碟<a class="headerlink" href="#usb" title="本標題的永久連結">¶</a></h2>
+<p>如果映像檔下載完成後,首先點選 <a class="reference external" href="https://rufus.ie/en_IE.html">Rufus</a> 連結下載此軟體並準備一顆大於映像檔大小的隨身碟,然後開啟軟體後會看到以下畫面,依照軟體畫面從上而下,首先裝置只要有USB連接都會顯示出來,資料分割方式,系統及單元大小則按照圖中的設定就可。</p>
+<div class="figure">
+<img alt="_images/usb_0.jpg" src="_images/usb_0.jpg" />
+</div>
+<p>再來則是點選圖中紅框的光碟機，請選擇前面下載好的映像檔後，然後執行</p>
+<div class="figure">
+<img alt="_images/usb_1.jpg" src="_images/usb_1.jpg" />
+</div>
+<p>如果跳出以下這張圖,請選擇ISO,然後ok繼續。</p>
+<div class="figure">
+<img alt="_images/usb_2.jpg" src="_images/usb_2.jpg" />
+</div>
+</div>
+<div class="section" id="id3">
+<h2>安裝ubuntu<a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<p><a class="reference external" href="https://blog.xuite.net/yh96301/blog/242333268-%E5%AE%89%E8%A3%9DUbuntu+16.04">安裝ubuntu</a> 簡易的流程如連結的步驟雷同,按照流程安裝即可</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">環境建置</a><ul>
+<li><a class="reference internal" href="#ubuntu">選擇ubuntu映像檔下載</a></li>
+<li><a class="reference internal" href="#usb">燒錄usb開機碟</a></li>
+<li><a class="reference internal" href="#id3">安裝ubuntu</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>上個主題</h4>
+  <p class="topless"><a href="index.html"
+                        title="上一章">ROS-教程</a></p>
+  <h4>下個主題</h4>
+  <p class="topless"><a href="ros-architecture.html"
+                        title="下一章">ROS主要層級</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本頁</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/env-build.rst.txt"
+            rel="nofollow">顯示原始碼</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜尋</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="搜" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="總索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="ros-architecture.html" title="ROS主要層級"
+             >下一頁</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="ROS-教程"
+             >上一頁</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ROS-教程 0.0.1 說明文件</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; 版權所有 2018, YR-Li。
+      使用 <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2 創建。
+    </div>
+  </body>
+</html>
