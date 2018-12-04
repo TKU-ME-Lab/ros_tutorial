@@ -10,12 +10,9 @@
 
 選擇ubuntu映像檔下載
 --------------------
-以下提供三個版本讓使用者下載,分別是 ``ubuntu`` , ``ubuntu-mate`` , ``Linux Mint`` ,都測試過可以運行ROS。
-差別上就是桌面環境不太一樣,使用者可以自行挑選下載,但是Mint是基於ubuntu而衍生的版本,要注意安裝ROS指令上要修改。
+在網路上搜尋ubuntu可能會跳出許多衍生版,像是 ubuntu-mate , ubuntu-gnome, 或者 Linux Mint,雖然這些版本的kernel都相同,在系統上的參數會有些許不同,再之後使用ROS時可能會遇到因版本不同，在安裝設定上會需要修改,所以對於初學者建議下載下面提供的版本。
 
  * `ubuntu <http://ftp.tku.edu.tw/Linux/Ubuntu/ubuntu-releases/16.04/ubuntu-16.04.5-desktop-amd64.iso>`_
- * `ubuntu-mate <http://cdimage.ubuntu.com/ubuntu-mate/releases/16.04/release/ubuntu-mate-16.04-desktop-amd64.iso>`_
- * `Linux Mint <http://ftp.tku.edu.tw/Linux/LinuxMint/linuxmint-iso/stable/18.2/linuxmint-18.2-cinnamon-64bit.iso>`_
 
 燒錄usb開機碟
 ---------------------
@@ -28,13 +25,23 @@
 .. figure:: image/usb_1.jpg
 
 
-.. 如果跳出以下這張圖,請選擇ISO,然後ok繼續。
+如果跳出以下這張圖,請選擇ISO,然後ok繼續。
 
 .. figure:: image/usb_2.jpg
 
 
 .. _Rufus: https://rufus.ie/en_IE.html
 
+
+安裝ubuntu
+---------------
+`安裝ubuntu`_ 簡易的流程如連結的步驟雷同,按照流程安裝即可
+
+.. warning::需要注意的事,假設使用者的電腦本身就已經有了windows系統且要保留windows系統,那麼在選擇安裝類型時,一定要選擇保留原系統的選項,否則選錯,資料會全部被格式化
+
+.. _安裝ubuntu: https://blog.xuite.net/yh96301/blog/242333268-%E5%AE%89%E8%A3%9DUbuntu+16.04
+
+.. sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu xenial main" > /etc/apt/sources.list.d/ros-latest.list'
 
 
 
