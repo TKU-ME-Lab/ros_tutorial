@@ -24,10 +24,11 @@ copyright = '2018, YR-Li'
 author = 'YR-Li'
 
 # The short X.Y version
-version = ''
+version = '0.0.1'
 # The full version, including alpha/beta/rc tags
 release = '0.0.1'
 
+language = 'zh_TW'
 
 # -- General configuration ---------------------------------------------------
 
@@ -38,9 +39,7 @@ release = '0.0.1'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
-    'sphinx.ext.autodoc',
-]
+extensions = []
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -107,8 +106,6 @@ htmlhelp_basename = 'ROS-教程doc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
-latex_engine = 'xelatex'
-
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
     #
@@ -120,7 +117,10 @@ latex_elements = {
 
     # Additional stuff for the LaTeX preamble.
     #
-    # 'preamble': '',
+    'preamble': '''
+    \usepackage[utf8]{inputen}
+    ''',
+    'inputenc': '',
 
     # Latex figure (float) alignment
     #
