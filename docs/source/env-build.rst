@@ -43,10 +43,7 @@
 
 .. _安裝ubuntu: https://blog.xuite.net/yh96301/blog/242333268-%E5%AE%89%E8%A3%9DUbuntu+16.04
 
-.. sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu xenial main" > /etc/apt/sources.list.d/ros-latest.list'
-
-
-更新ubuntu及安裝所需軟體
+更新ubuntu及安裝ROS
 -------------------------
 安裝好後，先更新ubuntu和安裝c/c++編譯器::
 
@@ -57,11 +54,24 @@
 
 .. figure:: image/vscode_extention.png
 
-
-
 .. _VSCode: https://code.visualstudio.com/
 
+安裝ROS請進入此 'Ros-wiki_' ,因為這裡所安裝的ubuntu版本為ubuntu xenial(16.04),對應到ROS的版本為Kinetic,所以請點選Kinetic進入安裝教程,下面大概列出會用到的指令::
 
+	$ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+	$ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
+	$	sudo apt-get update
+	$ sudo apt-get install ros-kinetic-desktop-full
+	$ sudo rosdep init
+	$ rosdep update
+
+.. _Ros-wiki: http://wiki.ros.org/
+	
+.. note::
+	至於依照網站1.6部份,指令如下,在做加入環境變數的步驟,如果有做此步驟就不用,每次開新的終端機(terminal)就要在呼叫一次::
+	
+	$ echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+	
 
 
 
