@@ -13,5 +13,6 @@ ROS-教程
 --------------------------------------
 
 .. toctree::
-   env-build
-   ros-architecture
+   	:maxdepth: 2
+    env-build
+    ros-architecture
