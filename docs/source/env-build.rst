@@ -30,15 +30,16 @@
 
 安裝ubuntu
 ---------------
-按照前面燒錄好隨身碟後,請重開機進入BIOS,選擇隨身碟開機之後會看到以下選單圖
+按照前面燒錄好隨身碟後,請重開機進入BIOS,選擇隨身碟開機之後會看到類似以下選單圖
 
 .. figure:: image/linux_grub-1.png
 
-選擇第一個進入
+選擇'開啟不安裝'進入
+
 `安裝ubuntu`_ 簡易的流程如連結的步驟雷同,按照流程安裝即可
 
 .. warning::
-需要注意的事,假設使用者的電腦本身就已經有了windows系統且要保留windows系統,那麼在選擇安裝類型時,一定要選擇保留原系統的選項,否則選錯,資料會全部被格式化
+	需要注意的事,假設使用者的電腦本身就已經有了windows系統且要保留windows系統,那麼在選擇安裝類型時,一定要選擇保留原系統的選項,否則選錯,資料會全部被格式化
 
 .. _安裝ubuntu: https://blog.xuite.net/yh96301/blog/242333268-%E5%AE%89%E8%A3%9DUbuntu+16.04
 
@@ -47,12 +48,15 @@
 
 更新ubuntu及安裝所需軟體
 -------------------------
-安裝好後，先更新ubuntu和安裝c/c++編譯器
+安裝好後，先更新ubuntu和安裝c/c++編譯器::
 
 	$ sudo apt-get update && sudo apt-get upgrade
 	$ sudo apt-get install build-essential
 
-之後透過 'VSCode_' 下載deb 安裝包
+之後透過 'VSCode_' 下載deb安裝包,下載後點選安裝開啟程式,點選左下角齒輪,開啟延伸模組在搜尋欄搜尋ROS,安裝圖下圖的模組
+
+.. figure:: image/vscode_extention.png
+
 
 
 .. _VSCode: https://code.visualstudio.com/
