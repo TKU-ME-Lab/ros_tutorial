@@ -71,6 +71,8 @@
 	至於依照網站1.6部份,指令如下,在做加入環境變數的步驟,如果有做此步驟就不用,每次開新的終端機(terminal)就要在呼叫一次::
 	
 	$ echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+
+
 	
 
 

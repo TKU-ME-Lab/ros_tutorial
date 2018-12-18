@@ -7,4 +7,4 @@ Filesystem level概念相似於作業系統，在這個層級可以看到ROS的�
 
 .. figure:: image/ros_architecture.png
 
-	* 'Packages'_:  Packages是 ROS 軟體的最基本的單元
+* Packages:  Packages是 ROS 軟體的最基本的單元
