@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'TKU-ME ROS-教程'
+project = 'ROS-教程'
 copyright = '2018, YR-Li'
 author = 'YR-Li'
 
@@ -102,7 +102,7 @@ html_static_path = []
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'TKU-ME ROS-教程doc'
+htmlhelp_basename = 'ROS-教程doc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -131,7 +131,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    ('index', 'TKU-ME ROS-Turtorial.tex', 'TKU-ME ROS-Turtorial Documentation',
+    ('index', 'ROS-Turtorial.tex', 'ROS-Turtorial Documentation',
      'YR-Li', 'manual'),
 ]
 
@@ -141,7 +141,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'TKU-ME ros-turtorial', 'TKU-ME ROS-Turtorial Documentation',
+    (master_doc, 'ros-turtorial', 'ROS-Turtorial Documentation',
      [author], 1)
 ]
 
@@ -152,8 +152,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'TKU-ME ROS-Turtorial', 'TKU-ME ROS-Turtorial Documentation',
-     author, 'TKU-ME ROS-Turtorial', 'One line description of project.',
+    (master_doc, 'ROS-Turtorial', 'ROS-Turtorial Documentation',
+     author, 'ROS-Turtorial', 'One line description of project.',
      'Miscellaneous'),
 ]
 
