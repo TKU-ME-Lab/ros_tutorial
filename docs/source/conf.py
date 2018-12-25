@@ -152,8 +152,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'ROS-Turtorial', 'ROS-Turtorial Documentation',
-     author, 'ROS-Turtorial', 'One line description of project.',
+    (master_doc, 'TKU-ME ROS-Turtorial', 'TKU-ME ROS-Turtorial Documentation',
+     author, 'TKU-ME ROS-Turtorial', 'One line description of project.',
      'Miscellaneous'),
 ]
 
