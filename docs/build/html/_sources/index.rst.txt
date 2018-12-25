@@ -6,6 +6,7 @@
 
 ROS-教程
 =========================================
+
 此教程主要講述如何在ubuntu 16.04下,使用ROS 1.0，首先會介紹ROS的基本架構及使用方式...
 
 章節簡介
@@ -13,10 +14,10 @@ ROS-教程
 
 .. toctree::
 	:maxdepth: 1
-	:caption: Getting Start
 		
-	ros-architecture	
-	env-build	
+	env-build
+	ros-architecture
+	
 
 .. toctree::
     :maxdepth: 1
