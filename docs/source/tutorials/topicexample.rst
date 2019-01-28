@@ -8,4 +8,4 @@ Topic為在ROS裡Node之間溝通最基礎的功能,而要構成透過Topic溝�
 而這個範例將舉例一個Publisher,一個subscriber透過一個topic溝通
 
 假設已經透過
-:ref:`建立Package <tutorial/index:建立Package>`
+:ref:`Create Package <tutorial/index:Create Package>`
