@@ -30,11 +30,7 @@
 
 安裝ubuntu
 ---------------
-按照前面燒錄好隨身碟後,請重開機進入BIOS,選擇隨身碟開機之後會看到類似以下選單圖
-
-.. figure:: image/linux_grub-1.png
-
-選擇'開啟不安裝'進入
+按照前面燒錄好隨身碟後,請重開機進入BIOS,選擇隨身碟開機之後，選擇'開啟不安裝'進入
 
 `安裝ubuntu`_ 簡易的流程如連結的步驟雷同,按照流程安裝即可
 
@@ -44,7 +40,6 @@
 .. _安裝ubuntu: https://blog.xuite.net/yh96301/blog/242333268-%E5%AE%89%E8%A3%9DUbuntu+16.04
 
 .. sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu xenial main" > /etc/apt/sources.list.d/ros-latest.list'
-
 
 更新ubuntu及安裝所需軟體
 -------------------------
