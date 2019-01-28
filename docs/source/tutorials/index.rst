@@ -5,13 +5,14 @@ ROS 基本範例
 
 Create Package
 --------------------
+
 ROS Package類似於程式專案,程式檔案及相關設定都會在這底下,例如函式庫相依、函式目錄路徑、編譯設定.
 
 這提供兩種方式建立專案,一是透過ROS的catkin指令,二是透過VSCode的插件
 
 首先透過catkin,必須先建立資料夾::
   
-  $ mkdir ~/dev/ros_turtorial_ws/src && cd ~/dev/ros_turtorial_ws/src
+  $ mkdir ~/dev/ros_tutorial_ws/src && cd ~/dev/ros_tutorial_ws/src
   $ catkin_create_pkg demo_topic roscpp std_msgs
 
 .. note::
