@@ -20,6 +20,6 @@ ROS-教程
 
 .. toctree::
     :maxdepth: 1
-    :caption: Turtorials
+    :caption: Tutorials
     
-    turtorials/index
+    tutorials/index
