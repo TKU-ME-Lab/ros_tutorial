@@ -7,5 +7,4 @@ Topic為在ROS裡Node之間溝通最基礎的功能,而要構成透過Topic溝�
 
 而這個範例將舉例一個Publisher,一個subscriber透過一個topic溝通
 
-假設已經透過
-:ref:`Create package <tutorials/index:Create Package>`
+假設已經透過 :ref:`Create package <create_package>` 建立好Package後，

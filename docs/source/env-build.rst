@@ -39,13 +39,7 @@
 
 .. _安裝ubuntu: https://blog.xuite.net/yh96301/blog/242333268-%E5%AE%89%E8%A3%9DUbuntu+16.04
 
-<<<<<<< HEAD
-.. sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu xenial main" > /etc/apt/sources.list.d/ros-latest.list'
-
-更新ubuntu及安裝所需軟體
-=======
 更新ubuntu及安裝ROS
->>>>>>> d5d3cef64915693ac1cc43dcb16b74166f288425
 -------------------------
 安裝好後，先更新ubuntu和安裝c/c++編譯器::
 
@@ -94,6 +88,7 @@
   如果建制完成後,想到執行此工作空間下的可執行節點(Node),要做一次Source的動作,記得每重開一次終端機(terminal)都要做一次::
 
   $　source ~/dev/ros_tutorial_ws/devel/setup.bash
+
 
 
 

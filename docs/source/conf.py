@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'ROS-教程'
+project = 'TKU-ME-ROS-Doc'
 copyright = '2018, YR-Li'
 author = 'YR-Li'
 
@@ -59,7 +59,7 @@ master_doc = 'index'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-#language = 'zh_TW'
+language = 'zh_TW'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -102,7 +102,7 @@ html_static_path = []
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'ROS-教程doc'
+htmlhelp_basename = 'TKU-ME-ROS-Doc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -117,10 +117,6 @@ latex_elements = {
 
     # Additional stuff for the LaTeX preamble.
     #
-    'preamble': '''
-    \usepackage[utf8]{inputen}
-    ''',
-    'inputenc': '',
 
     # Latex figure (float) alignment
     #
@@ -161,7 +157,7 @@ texinfo_documents = [
 # -- Options for Epub output -------------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = project
+epub_title = 'project'
 
 # The unique identifier of the text. This can be a ISBN number
 # or the project homepage.
