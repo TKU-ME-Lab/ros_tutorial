@@ -34,6 +34,8 @@ VSCode-ROS
 
 選擇好後按下 ``Ctrl`` + ``p`` 會跳出命令欄,選擇選項裡的 ``ROS: Create Catkin Package`` , 首先輸入Package Name，上一段的例子來說就是 ``demo_topic`` , 再來則輸入依賴專案就是 ``roscpp std_msgs``
 
+基本溝通方式
+----------------------------
 .. toctree::
 		:maxdepth: 1
 		:caption: Example
